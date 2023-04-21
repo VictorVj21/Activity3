@@ -1,31 +1,40 @@
-let resume=
-    [
-    basic_details={
-    name:"Vijay Kumar M",
-    age:23,
-    phone_no:"9943879939",
-    email:"victorvj6060@gmail.com",
-    address:"3/13,Arjunapuram village, Kosavanpudur post, K.V.KUppam Taluk,Vellore,635803",
-    },
-    
-    educational_details={
-    tenth_marks:"489/500",
-    tenth_passing_year:"2015",
-    twelth_marks:"1170/1200",
-    twelth_passing_year:"2017",
-    
-    },
-    graduation_details={
-    degree:"B.E",
-    stream:"E.C.E",
-    CGPA:"8.24",
-    college:"SSN college of engineering",
-    year_of_passing:"2021",
-    },
-    work_experience={
-    present_company:"none",
-    experience:"none"
-    }
-    ]
-    
-console.log(resume)
+1.For the given json iterate over all for loops 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function reqListener() {
+           data=JSON.parse(this.responseText);
+            for(i=0;i<data.length;i++){
+               console.log(data[i].name.common,data[i].population)
+            }
+            for(i in data){
+                 console.log(data[i].name.common,data[i].population)
+             }
+            for(i of data){
+                console.log(i.name.common,i.area)
+            }
+            data.forEach((a)=>{
+                console.log(a.name.common,a.population,a.area)
+            })
+        }
+        const req = new XMLHttpRequest();
+        req.addEventListener("load", reqListener);
+        req.open("GET", "https://restcountries.com/v3.1/all");
+        req.send();
+    </script>
+</body>
+</html>
+
+
+
